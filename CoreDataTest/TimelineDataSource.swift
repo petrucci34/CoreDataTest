@@ -11,17 +11,26 @@ import CoreData
 
 class TimelineDataSource {
     var fetchedResultsController: NSFetchedResultsController<Tweet>?
+    var sortByDateAscending: Bool = false {
+        didSet {
+            sortByDate()
+        }
+    }
 
     init() {
+        sortByDate()
+    }
+
+    func sortByDate() {
         let fetchRequest: NSFetchRequest<Tweet> = Tweet.fetchRequest()
-        let timeSort = NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: false)
+        let dateSort = NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)
         let favoriteSort = NSSortDescriptor(key: #keyPath(Tweet.favoriteCount), ascending: false)
 
-        fetchRequest.sortDescriptors = [timeSort, favoriteSort]
+        fetchRequest.sortDescriptors = [dateSort, favoriteSort]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-            managedObjectContext: CoreDataStack.sharedInstance.managedContext,
-            sectionNameKeyPath: nil,
-            cacheName: "timeline")
+                                                              managedObjectContext: CoreDataStack.sharedInstance.managedContext,
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: "timeline")
 
         do {
             try fetchedResultsController?.performFetch()

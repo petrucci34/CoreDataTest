@@ -31,7 +31,9 @@ class TableViewController: UITableViewController {
         // Hide empty row separators.
         tableView.tableFooterView = UIView(frame: .zero)
 
-//        dataSource.fetchedResultsController?.delegate = self
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortByDate))
+
+        // dataSource.fetchedResultsController?.delegate = self
 
         updateClient()
     }
@@ -43,9 +45,12 @@ class TableViewController: UITableViewController {
         if let searchBarHeight = searchBar?.frame.size.height {
             tableView.contentOffset = CGPoint(x: 0, y: searchBarHeight)
         }
+
+        tableView.reloadData()
     }
 }
 
+// MARK: - private methods
 private extension TableViewController {
     // As documented in https://dev.twitter.com/rest/reference/get/statuses/user_timeline.
     func updateClient() {
@@ -58,6 +63,12 @@ private extension TableViewController {
                 self.loadTimeline()
             }
         }
+    }
+
+    @objc func sortByDate() {
+        // Flip whatever the sort ordering was previously.
+        dataSource.sortByDateAscending = !dataSource.sortByDateAscending
+        tableView.reloadData()
     }
 
     @objc func loadTimeline() {
@@ -123,6 +134,7 @@ extension TableViewController {
 }
 
 // MARK: - NSFetchedResultsControllerDelegate
+// This section is not used in the app but is left commented out for demonstration purposes.
 /*
 extension TableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

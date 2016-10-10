@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		160C22BD1DAAEF4F004C464B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C22BC1DAAEF4F004C464B /* AppDelegate.swift */; };
-		160C22BF1DAAEF4F004C464B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C22BE1DAAEF4F004C464B /* FirstViewController.swift */; };
+		160C22BF1DAAEF4F004C464B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C22BE1DAAEF4F004C464B /* LoginViewController.swift */; };
 		160C22C41DAAEF4F004C464B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160C22C21DAAEF4F004C464B /* Main.storyboard */; };
 		160C22C61DAAEF4F004C464B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 160C22C51DAAEF4F004C464B /* Assets.xcassets */; };
 		160C22C91DAAEF4F004C464B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160C22C71DAAEF4F004C464B /* LaunchScreen.storyboard */; };
@@ -47,7 +47,7 @@
 /* Begin PBXFileReference section */
 		160C22B91DAAEF4F004C464B /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		160C22BC1DAAEF4F004C464B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		160C22BE1DAAEF4F004C464B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		160C22BE1DAAEF4F004C464B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		160C22C31DAAEF4F004C464B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		160C22C51DAAEF4F004C464B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		160C22C81DAAEF4F004C464B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			children = (
 				160C23051DAB0F92004C464B /* Model */,
 				160C22BC1DAAEF4F004C464B /* AppDelegate.swift */,
-				160C22BE1DAAEF4F004C464B /* FirstViewController.swift */,
+				160C22BE1DAAEF4F004C464B /* LoginViewController.swift */,
 				160C23011DAB045A004C464B /* TableViewController.swift */,
 				160C231F1DAB519F004C464B /* TweetCell.swift */,
 				160C23231DAB55F2004C464B /* TableViewCellAdapter.swift */,
@@ -394,7 +394,7 @@
 			files = (
 				160C22BD1DAAEF4F004C464B /* AppDelegate.swift in Sources */,
 				160C23111DAB1E17004C464B /* Tweet+CoreDataClass.swift in Sources */,
-				160C22BF1DAAEF4F004C464B /* FirstViewController.swift in Sources */,
+				160C22BF1DAAEF4F004C464B /* LoginViewController.swift in Sources */,
 				160C23081DAB0FA4004C464B /* Model.xcdatamodeld in Sources */,
 				160C23041DAB0F88004C464B /* TimelineResponseMapper.swift in Sources */,
 				160C231E1DAB4C50004C464B /* TimelineDataSource.swift in Sources */,
