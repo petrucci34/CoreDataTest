@@ -14,7 +14,7 @@ class Session {
     var userId: String?
     var client: TWTRAPIClient?
     var isUserLoggedIn: Bool {
-        return !Twitter.sharedInstance().sessionStore.existingUserSessions().isEmpty
+        return !Twitter.sharedInstance().sessionStore.existingUserSessions().isEmpty && client != nil
     }
     var timelineEndpoint: String? {
         guard let userId = userId else {

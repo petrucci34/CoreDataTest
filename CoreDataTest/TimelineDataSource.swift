@@ -12,14 +12,22 @@ import CoreData
 class TimelineDataSource {
     let fetchedResultsController: NSFetchedResultsController<Tweet>?
     var fetchRequest: NSFetchRequest<Tweet> = Tweet.fetchRequest()
-    var sortByDateAscending: Bool = false {
-        didSet {
+    fileprivate let sortKey = "sortByDateAscending"
+    var sortByDateAscending: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: sortKey)
             sortByDate()
+        }
+        get {
+            if let sortAscending = UserDefaults.standard.value(forKey: sortKey) as? Bool {
+                return sortAscending
+            }
+            return false
         }
     }
 
     init() {
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: false)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
             managedObjectContext: CoreDataStack.sharedInstance.managedContext,
             sectionNameKeyPath: nil,

@@ -14,7 +14,7 @@ struct TimelineViewCellAdapter {
             return
         }
 
-        tweetCell.user.text = tweet.user
+        tweetCell.user.text = tweet.screenName
         tweetCell.date.text = TimelineResponseMapper.dateToString(tweet.createdAt)
         tweetCell.content.text = tweet.text
         tweetCell.favoriteCount.text = "\(tweet.favoriteCount)"

@@ -44,8 +44,7 @@
                             <constraint firstItem="dfx-iS-6Ce" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="bAh-fQ-bHg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Login" id="CxF-iH-5EG"/>
-                    <navigationItem key="navigationItem" id="OFm-wO-L0f"/>
+                    <navigationItem key="navigationItem" title="Login" id="OFm-wO-L0f"/>
                     <connections>
                         <outlet property="signInButton" destination="dfx-iS-6Ce" id="MKO-G8-uC8"/>
                         <outlet property="signOutButton" destination="F5P-Cn-2fU" id="5bj-3Q-rEA"/>
@@ -53,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="3567.1999999999998" y="-320.68965517241384"/>
         </scene>
         <!--TimelineViewController-->
         <scene sceneID="H42-Hx-u9i">
@@ -64,13 +63,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter keyword" id="UJ3-Jt-ivc">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="80" id="dZO-ZE-V6f" customClass="TweetCell" customModule="CoreDataTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZO-ZE-V6f" id="8to-ZG-lX8">
                                     <frame key="frameInset" width="375" height="80"/>
@@ -140,11 +139,11 @@
                             <outlet property="delegate" destination="pWx-ZX-09u" id="3iK-2u-3Rm"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Tweets" id="Chd-ox-4BG"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="BB9-qL-3eF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyc-Sc-HUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3348" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="5226.3999999999996" y="-321.58920539730138"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qHc-Kj-z5N">
@@ -156,13 +155,55 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="XXg-Wp-MTF"/>
-                        <segue destination="pWx-ZX-09u" kind="relationship" relationship="viewControllers" id="m1g-Nk-Gx0"/>
+                        <segue destination="UG7-rO-jxK" kind="relationship" relationship="viewControllers" id="XXg-Wp-MTF"/>
+                        <segue destination="5tk-rf-Izl" kind="relationship" relationship="viewControllers" id="m1g-Nk-Gx0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKr-qr-q4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
         </scene>
+        <!--Login-->
+        <scene sceneID="HhQ-I6-1Nh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UG7-rO-jxK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Login" image="first" id="CxF-iH-5EG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wwe-Sj-wQm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="v5n-E2-M5r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NrS-h7-B1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2628" y="-320.68965517241384"/>
+        </scene>
+        <!--Tweets-->
+        <scene sceneID="DXi-1T-0Q3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5tk-rf-Izl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tweets" image="second" id="Chd-ox-4BG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b6b-Q0-BOM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pWx-ZX-09u" kind="relationship" relationship="rootViewController" id="ciU-f0-z1F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ds-c5-7hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4287.1999999999998" y="-321.58920539730138"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
 </document>

@@ -22,9 +22,11 @@
 		160C23111DAB1E17004C464B /* Tweet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C230F1DAB1E17004C464B /* Tweet+CoreDataClass.swift */; };
 		160C231E1DAB4C50004C464B /* TimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C231D1DAB4C50004C464B /* TimelineDataSource.swift */; };
 		160C23201DAB519F004C464B /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C231F1DAB519F004C464B /* TweetCell.swift */; };
-		160C23221DAB523A004C464B /* Tweet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C23211DAB523A004C464B /* Tweet+CoreDataProperties.swift */; };
 		160C23241DAB55F2004C464B /* TableViewCellAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160C23231DAB55F2004C464B /* TableViewCellAdapter.swift */; };
 		16D3D3601DAC0A7100CE1D8C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D35F1DAC0A7100CE1D8C /* Session.swift */; };
+		16D3D3641DAC1F0E00CE1D8C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D3611DAC1F0E00CE1D8C /* User+CoreDataClass.swift */; };
+		16D3D3661DAC1F0E00CE1D8C /* Tweet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D3631DAC1F0E00CE1D8C /* Tweet+CoreDataProperties.swift */; };
+		16D3D36A1DAC20C800CE1D8C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D3681DAC20C800CE1D8C /* User+CoreDataProperties.swift */; };
 		875610D1872CBC99B9E445F6 /* Pods_CoreDataTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41FBD352EEAF65ED142F456 /* Pods_CoreDataTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,9 +69,11 @@
 		160C230F1DAB1E17004C464B /* Tweet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tweet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		160C231D1DAB4C50004C464B /* TimelineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineDataSource.swift; sourceTree = "<group>"; };
 		160C231F1DAB519F004C464B /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
-		160C23211DAB523A004C464B /* Tweet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tweet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		160C23231DAB55F2004C464B /* TableViewCellAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellAdapter.swift; path = CoreDataTest/TableViewCellAdapter.swift; sourceTree = "<group>"; };
 		16D3D35F1DAC0A7100CE1D8C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		16D3D3611DAC1F0E00CE1D8C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16D3D3631DAC1F0E00CE1D8C /* Tweet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tweet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16D3D3681DAC20C800CE1D8C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2DDF387A48E5917C21C9D5F9 /* Pods-CoreDataTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataTest/Pods-CoreDataTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7CD0BC8B79F360F3642B5EC5 /* Pods-CoreDataTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataTest/Pods-CoreDataTest.release.xcconfig"; sourceTree = "<group>"; };
 		A41FBD352EEAF65ED142F456 /* Pods_CoreDataTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				160C23061DAB0FA4004C464B /* Model.xcdatamodeld */,
+				16D3D3681DAC20C800CE1D8C /* User+CoreDataProperties.swift */,
+				16D3D3611DAC1F0E00CE1D8C /* User+CoreDataClass.swift */,
+				16D3D3631DAC1F0E00CE1D8C /* Tweet+CoreDataProperties.swift */,
 				160C230F1DAB1E17004C464B /* Tweet+CoreDataClass.swift */,
-				160C23211DAB523A004C464B /* Tweet+CoreDataProperties.swift */,
 				160C23031DAB0F88004C464B /* TimelineResponseMapper.swift */,
 				160C230D1DAB11EE004C464B /* CoreDataStack.swift */,
 				160C231D1DAB4C50004C464B /* TimelineDataSource.swift */,
@@ -414,6 +420,8 @@
 			files = (
 				160C22BD1DAAEF4F004C464B /* AppDelegate.swift in Sources */,
 				160C23111DAB1E17004C464B /* Tweet+CoreDataClass.swift in Sources */,
+				16D3D36A1DAC20C800CE1D8C /* User+CoreDataProperties.swift in Sources */,
+				16D3D3641DAC1F0E00CE1D8C /* User+CoreDataClass.swift in Sources */,
 				160C22BF1DAAEF4F004C464B /* LoginViewController.swift in Sources */,
 				160C23081DAB0FA4004C464B /* Model.xcdatamodeld in Sources */,
 				160C23041DAB0F88004C464B /* TimelineResponseMapper.swift in Sources */,
@@ -421,9 +429,9 @@
 				160C23241DAB55F2004C464B /* TableViewCellAdapter.swift in Sources */,
 				160C23201DAB519F004C464B /* TweetCell.swift in Sources */,
 				16D3D3601DAC0A7100CE1D8C /* Session.swift in Sources */,
+				16D3D3661DAC1F0E00CE1D8C /* Tweet+CoreDataProperties.swift in Sources */,
 				160C23021DAB045A004C464B /* TimelineViewController.swift in Sources */,
 				160C230E1DAB11EE004C464B /* CoreDataStack.swift in Sources */,
-				160C23221DAB523A004C464B /* Tweet+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

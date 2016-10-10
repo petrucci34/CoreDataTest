@@ -28,6 +28,8 @@ class TimelineViewController: UITableViewController {
         // Hide empty row separators.
         tableView.tableFooterView = UIView(frame: .zero)
 
+        // Add Refresh and Sort buttons.
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(loadTimeline))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortByDate))
 
         dataSource.fetchedResultsController?.delegate = self
@@ -64,10 +66,13 @@ private extension TimelineViewController {
     }
 
     @objc func loadTimeline() {
-        guard let client = Session.sharedInstance.client,
+        guard Session.sharedInstance.isUserLoggedIn,
+            let client = Session.sharedInstance.client,
             let timelineEndpoint = Session.sharedInstance.timelineEndpoint else {
             tableView.refreshControl?.endRefreshing()
             tableView.reloadData()
+                showLoginAlert()
+
             return
         }
 
@@ -101,6 +106,12 @@ private extension TimelineViewController {
                 }
             }
         }
+    }
+
+    func showLoginAlert() {
+        let alertController = UIAlertController(title: "Please login", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -137,4 +148,45 @@ extension TimelineViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.reloadData()
     }
+
+    /*
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .update:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier, for: indexPath!)
+            if let tweet = dataSource.tweetAt(indexPath: indexPath!) {
+                TimelineViewCellAdapter.configure(cell as? TweetCell, tweet: tweet)
+            }
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        }
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+
+        let indexSet = IndexSet(integer: sectionIndex)
+
+        switch type {
+        case .insert:
+            tableView.insertSections(indexSet, with: .automatic)
+        case .delete:
+            tableView.deleteSections(indexSet, with: .automatic)
+        default: break
+        }
+    }
+    */
 }
