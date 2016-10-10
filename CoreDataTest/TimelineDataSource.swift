@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 class TimelineDataSource {
-    var fetchedResultsController: NSFetchedResultsController<Tweet>?
+    let fetchedResultsController: NSFetchedResultsController<Tweet>?
+    var fetchRequest: NSFetchRequest<Tweet> = Tweet.fetchRequest()
     var sortByDateAscending: Bool = false {
         didSet {
             sortByDate()
@@ -18,21 +19,24 @@ class TimelineDataSource {
     }
 
     init() {
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: CoreDataStack.sharedInstance.managedContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+
         sortByDate()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(sortByDate), name: CoreDataStack.didRemoveAllNotificationName, object: nil)
     }
 
-    func sortByDate() {
-        let fetchRequest: NSFetchRequest<Tweet> = Tweet.fetchRequest()
-        let dateSort = NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)
-        let favoriteSort = NSSortDescriptor(key: #keyPath(Tweet.favoriteCount), ascending: false)
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
-        fetchRequest.sortDescriptors = [dateSort, favoriteSort]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                              managedObjectContext: CoreDataStack.sharedInstance.managedContext,
-                                                              sectionNameKeyPath: nil,
-                                                              cacheName: "timeline")
-
+    @objc func sortByDate() {
         do {
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)]
             try fetchedResultsController?.performFetch()
         } catch let error as NSError {
             print("Fetching error: \(error), \(error.userInfo)")

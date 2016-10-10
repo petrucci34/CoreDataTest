@@ -1,5 +1,5 @@
 //
-//  TableViewCellAdapter.swift
+//  TimelineViewCellAdapter.swift
 //  CoreDataTest
 //
 //  Created by Korhan Bircan on 10/9/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TableViewCellAdapter {
+struct TimelineViewCellAdapter {
     static func configure(_ tweetCell: TweetCell?, tweet: Tweet?) {
         guard let tweetCell = tweetCell, let tweet = tweet else {
             return

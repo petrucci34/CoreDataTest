@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DiZ-B6-rBX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jsW-zc-4Fo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="LoginViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="LoginViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,18 +17,48 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfx-iS-6Ce" userLabel="Sign In" customClass="TWTRLogInButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6NF-XX-68s"/>
+                                    <constraint firstAttribute="width" constant="250" id="Gdw-ky-OZi"/>
+                                </constraints>
+                                <state key="normal" title="Sign In"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-Cn-2fU" userLabel="Sign Out">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="cmu-5I-z4Y"/>
+                                    <constraint firstAttribute="height" constant="30" id="sjq-NO-LzX"/>
+                                </constraints>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="didTapSignOutButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KO4-bH-Wjv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F5P-Cn-2fU" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="HiJ-Y9-bgd"/>
+                            <constraint firstItem="F5P-Cn-2fU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="L2A-IE-5Bv"/>
+                            <constraint firstItem="dfx-iS-6Ce" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="auT-Co-3qd"/>
+                            <constraint firstItem="dfx-iS-6Ce" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="bAh-fQ-bHg"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Login" id="CxF-iH-5EG"/>
                     <navigationItem key="navigationItem" id="OFm-wO-L0f"/>
+                    <connections>
+                        <outlet property="signInButton" destination="dfx-iS-6Ce" id="MKO-G8-uC8"/>
+                        <outlet property="signOutButton" destination="F5P-Cn-2fU" id="5bj-3Q-rEA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="2628" y="-320.68965517241384"/>
         </scene>
-        <!--Tweets-->
+        <!--TimelineViewController-->
         <scene sceneID="H42-Hx-u9i">
             <objects>
-                <tableViewController storyboardIdentifier="TableViewController" title="Tweets" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pWx-ZX-09u" customClass="TableViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TimelineViewController" title="Tweets" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pWx-ZX-09u" userLabel="TimelineViewController" customClass="TimelineViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="M9g-D3-ls7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,32 +140,29 @@
                             <outlet property="delegate" destination="pWx-ZX-09u" id="3iK-2u-3Rm"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Tweets" id="Chd-ox-4BG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyc-Sc-HUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2408.8000000000002" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="3348" y="-321.58920539730138"/>
         </scene>
-        <!--First-->
-        <scene sceneID="fPU-Qo-cmX">
+        <!--Tab Bar Controller-->
+        <scene sceneID="qHc-Kj-z5N">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DiZ-B6-rBX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jsW-zc-4Fo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zyp-zK-iUN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="snC-us-mOP">
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="ZoI-7O-kQJ"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="XXg-Wp-MTF"/>
+                        <segue destination="pWx-ZX-09u" kind="relationship" relationship="viewControllers" id="m1g-Nk-Gx0"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MWK-Bw-erY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xKr-qr-q4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-    </resources>
 </document>

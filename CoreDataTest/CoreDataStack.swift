@@ -15,6 +15,7 @@ import CoreData
 class CoreDataStack {
     fileprivate let modelName = "Model"
     static let sharedInstance = CoreDataStack()
+    static let didRemoveAllNotificationName = NSNotification.Name(rawValue: "didRemoveAllNotification")
 
     lazy var managedContext: NSManagedObjectContext = {
         let context = self.storeContainer.viewContext
@@ -43,6 +44,19 @@ class CoreDataStack {
             try self.managedContext.save()
         } catch let error as NSError {
             print("Unresolved error \(error), \(error.userInfo)")
+        }
+    }
+
+    func removeAll<T: NSManagedObject>(_ type: T.Type) {
+        let fetchRequest = T.self.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedContext.execute(batchDeleteRequest)
+            saveContext()
+            NotificationCenter.default.post(name: CoreDataStack.didRemoveAllNotificationName, object: self)
+        } catch {
+            print("Batch deletion failed.")
         }
     }
 }

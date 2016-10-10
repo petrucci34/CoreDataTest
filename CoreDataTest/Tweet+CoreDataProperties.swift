@@ -9,9 +9,7 @@
 import Foundation
 import CoreData
 
-
 extension Tweet {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Tweet> {
         return NSFetchRequest<Tweet>(entityName: "Tweet");
     }
