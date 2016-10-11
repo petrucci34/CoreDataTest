@@ -42,6 +42,17 @@ class TimelineDataSource {
         NotificationCenter.default.removeObserver(self)
     }
 
+    @objc func filter(keyword: String) {
+        do {
+            fetchRequest.predicate = keyword.isEmpty ? nil : NSPredicate(format: "text contains[c] %@", keyword)
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)]
+            try fetchedResultsController?.performFetch()
+
+        } catch let error as NSError {
+            print("Fetching error: \(error), \(error.userInfo)")
+        }
+    }
+
     @objc func sortByDate() {
         do {
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Tweet.createdAt), ascending: sortByDateAscending)]

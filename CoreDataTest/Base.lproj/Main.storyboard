@@ -66,6 +66,9 @@
                             <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="pWx-ZX-09u" id="vjb-Tr-qak"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="80" id="dZO-ZE-V6f" customClass="TweetCell" customModule="CoreDataTest" customModuleProvider="target">
@@ -143,7 +146,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyc-Sc-HUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5226.3999999999996" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="3567" y="449"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qHc-Kj-z5N">
@@ -151,6 +154,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jsW-zc-4Fo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="snC-us-mOP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -199,7 +203,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ds-c5-7hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4287.1999999999998" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="2628" y="449"/>
         </scene>
     </scenes>
     <resources>

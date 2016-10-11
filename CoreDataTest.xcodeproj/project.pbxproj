@@ -63,7 +63,7 @@
 		160C22E01DAAEF50004C464B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		160C22FE1DAAF1D6004C464B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		160C23011DAB045A004C464B /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimelineViewController.swift; path = CoreDataTest/TimelineViewController.swift; sourceTree = "<group>"; };
-		160C23031DAB0F88004C464B /* TimelineResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineResponseMapper.swift; sourceTree = "<group>"; };
+		160C23031DAB0F88004C464B /* TimelineResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimelineResponseMapper.swift; path = CoreDataTest/TimelineResponseMapper.swift; sourceTree = "<group>"; };
 		160C23071DAB0FA4004C464B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		160C230D1DAB11EE004C464B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		160C230F1DAB1E17004C464B /* Tweet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tweet+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -166,7 +166,6 @@
 				16D3D3611DAC1F0E00CE1D8C /* User+CoreDataClass.swift */,
 				16D3D3631DAC1F0E00CE1D8C /* Tweet+CoreDataProperties.swift */,
 				160C230F1DAB1E17004C464B /* Tweet+CoreDataClass.swift */,
-				160C23031DAB0F88004C464B /* TimelineResponseMapper.swift */,
 				160C230D1DAB11EE004C464B /* CoreDataStack.swift */,
 				160C231D1DAB4C50004C464B /* TimelineDataSource.swift */,
 				16D3D35F1DAC0A7100CE1D8C /* Session.swift */,
@@ -179,6 +178,7 @@
 			children = (
 				160C22BE1DAAEF4F004C464B /* LoginViewController.swift */,
 				160C23011DAB045A004C464B /* TimelineViewController.swift */,
+				160C23031DAB0F88004C464B /* TimelineResponseMapper.swift */,
 				160C23231DAB55F2004C464B /* TableViewCellAdapter.swift */,
 			);
 			name = Controller;

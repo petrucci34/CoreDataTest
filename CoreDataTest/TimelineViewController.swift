@@ -141,6 +141,15 @@ extension TimelineViewController {
     }
 }
 
+// MARKL - UISearchBarDelegate
+
+extension TimelineViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        dataSource.filter(keyword: searchText)
+        tableView.reloadData()
+    }
+}
+
 // MARK: - NSFetchedResultsControllerDelegate
 // This section is not used in the app but is left commented out for demonstration purposes.
 
